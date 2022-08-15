@@ -1,25 +1,29 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "./components/HelloWorld.vue";
-import SideBarVue from "./components/SideBar.vue";
 </script>
 
 <template>
-  <div id="body" class="flex">
-    <div id="nav" class="inline-flex lg:flex-col flex-row w-screen lg:h-screen lg:w-auto content-center bg-gray-200">
-      <router-link to="/">Home</router-link>
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div id="body" class="">
+    <aside id="nav" class="w-64" aria-label="Sidebar">
+      <div
+        class="overflow-y-auto py-4 px-3 bg-gray-100 rounded dark:bg-gray-700"
+      >
+        <ul class="space-y-2">
+          <li>
+            <router-link tag="li" to="/files">Files</router-link>
+          </li>
+          <li>
+            <router-link tag="li" to="/files">Files</router-link>
+          </li>
+        </ul>
+      </div>
+    </aside>
+    <router-view />
   </div>
 </template>
 
-<style lang="postcss" scoped>
-a {
-  @apply font-normal hover:font-bold rounded-lg p-1;
-}
-
-a.router-link-exact-active {
-  @apply bg-yellow-200;
+<style lang="postcss">
+#nav li {
+  @apply flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-500;
 }
 </style>
